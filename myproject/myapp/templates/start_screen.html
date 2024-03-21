@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Start Screen</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/start_screen.css' %}">
+</head>
+
+<body>
+    <div class="container"></div>
+        <h1>薬管理アプリ</h1>
+        <div class="buttons">
+        <a href="{% url 'myapp:register' %}" class="register-btn">新規ユーザー登録</a>
+        <a href="{% url 'myapp:login' %}" class="login-btn">ログイン</a>
+    </div>
+
+</body>
+
+</html>
+
+
+

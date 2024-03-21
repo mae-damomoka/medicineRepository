@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新規登録</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/signup_style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <form method="post">
+            <h1>新規登録</h1>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">ユーザー名</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password1.id_for_label }}">パスワード</label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">パスワード確認</label>
+                {{ form.password2 }}
+            </div>
+            <button type="submit" class="signup-button">新規登録</button>
+        </form>
+
+</body>
+</html>
+

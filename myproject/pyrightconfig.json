@@ -1,0 +1,8 @@
+{
+    "ignore": [
+        "パス/へ/あなたの/models.py" ,
+        "myapp/models.py" ,
+        
+    ]
+}
+ 

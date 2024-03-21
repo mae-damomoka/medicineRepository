@@ -1,0 +1,71 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>薬一覧</title>
+    <link href="{% static 'myapp/css/medicines-list.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>薬一覧</h1>
+            <a href="{% url 'myapp:menu' %}" class="back-to-menu">メニューに戻る</a>
+        </div>
+
+        <form action="{% url 'myapp:medicine_list' %}" method="post" class="medicine-form">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="medicine_name">薬の名前：</label>
+              <input type="text" id="medicine_name" name="medicine_name" required>
+            </div>
+          
+            <div class="form-group">
+              <label for="medicine_effect">効能：</label>
+              <input type="text" id="medicine_effect" name="medicine_effect" required>
+            </div>
+          
+            <div class="form-group">
+              <label for="prescribed_hospital">処方した病院：</label>
+              <input type="text" id="prescribed_hospital" name="prescribed_hospital" required>
+            </div>
+          
+            <div class="button-container">
+              <button type="submit" class="button add-button">追加</button>
+            </div>
+          </form>
+          
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>薬の名前</th>
+                        <th class="effect-width">効能</th>
+                        <th class="hospital-width">処方した病院</th>
+                        <th class="action-column">操作</th> <!-- ここをthタグに変更 -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for medicine in medicines %}
+                    <tr>
+                        <td>{{ medicine.name }}</td>
+                        <td>{{ medicine.effect }}</td>
+                        <td>{{ medicine.hospital }}</td>
+                        <td class="text-right action-column">
+                            <!-- 内部のtdタグを削除 -->
+                            <form method="post" action="{% url 'myapp:delete_medicine' medicine.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-button">削除</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+</body>
+</html>

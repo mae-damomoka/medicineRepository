@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ログイン</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/css/login_style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>ログイン</h1>
+            <form method="post" action="{% url 'myapp:login' %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="username">ユーザー名:</label>
+                    <input type="text" id="username" name="username" autocomplete="username" class="login-input">
+                </div>
+                <div class="input-group">
+                    <label for="password">パスワード:</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password" class="login-input">
+                </div>
+                <input type="submit" value="ログイン" class="login-submit">
+            </form>
+
+            {% if error %}
+            <div class="error-message">
+              <div class="alert alert-danger" role="alert">
+                {{ error }}
+              </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</body>
+</html>

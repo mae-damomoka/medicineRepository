@@ -1,0 +1,158 @@
+/* 基本的なスタイリング */
+.favorite {
+  background-color: #FFC0CB; /* 薄ピンク色 */
+}
+
+/* メニューボタンのスタイル */
+.menu-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* コンテナのスタイル */
+.container {
+  display: flex;
+  justify-content: center; /* 横方向の中央揃え */
+  flex-direction: column; /* 子要素を縦方向に配置 */
+  align-items: center; /* 縦方向の中央揃え */
+  min-height: 100vh; /* コンテナの高さをビューポートの高さに合わせる */
+  width: 100%; /* コンテナの幅を100%に設定 */
+}
+
+/* 入力フィールドコンテナのスタイル */
+.input-group {
+  display: flex;
+  flex-direction: column; /* 入力フィールドを縦に並べる */
+  margin-bottom: 10px; /* 下の要素との間隔 */
+}
+
+/* 入力ボックスのスタイル */
+.input-large {
+  height: 40px; /* 入力ボックスの高さを30pxに設定 */
+  padding: 0 10px; /* 内側の余白を左右に10pxに設定 */
+  margin-bottom: 10px; /* 下の要素との間隔を10pxに設定 */
+  box-sizing: border-box; /* paddingとborderを含めたサイズでwidthとheightが計算されるように設定 */
+  border: 1px solid #d3d3d3; /* 枠線を薄いグレーに設定 */
+  border-radius: 5px; /* 角を少し丸く設定 */
+}
+
+/* 送信ボタンのスタイル */
+.input-submit {
+  background-color: #4098D7; /* ボタンの背景色を#4098D7に変更 */
+  color: white; /* ボタンのテキスト色を白に変更 */
+  border: none; /* ボーダーを削除 */
+  padding: 10px 20px; /* パディングを適用 */
+  border-radius: 5px; /* 角を丸くする */
+  cursor: pointer; /* カーソルをポインターに変更 */
+  margin-top: 10px; /* 上の要素との余白 */
+  width: auto; /* ボタンの幅を内容に合わせる */
+  transition: background-color 0.3s; /* 背景色の変化をなめらかに */
+  margin-bottom: 20px; /* 追加ボタンの下の余白 */
+}
+
+.input-submit:hover {
+  background-color: #357ABD; /* ホバー時の背景色をより濃い色に変更 */
+}
+
+/* ページ全体を包含するラッパーのスタイル */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子要素を横方向に中央に配置 */
+  justify-content: flex-start; /* 上部に隙間を作らないように */
+  min-height: 100vh;
+  padding-top: 20px; /* メニューボタンのための上部のスペース */
+  width: 100%;
+}
+
+/* テーブルのスクロール可能領域のスタイル */
+.scrollable-table {
+  height: 500; /* コンテンツに応じて高さが自動調整される */
+  display: flex;
+  justify-content: center; /* 横方向の中央揃え */
+  width: 100%;
+  min-height: 300px;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex-grow: 1; /* スクロール可能なテーブル領域を残りのスペースいっぱいに広げる */
+}
+
+
+/* テーブル全体のスタイル */
+table {
+  width: 100%; /* テーブルの幅を親要素の幅に合わせる */
+  table-layout: fixed; /* 列幅を固定する */
+  border-collapse: collapse; /* セルのボーダーを重ねる */
+}
+
+/* ボタンコンテナのスタイル */
+.button-container {
+  display: flex; /* Flexboxを有効にする */
+  justify-content: center; /* 水平方向の中央揃え */
+  width: 100%; /* コンテナの幅を100%に設定 */
+}
+
+/* 各行のセルのスタイル */
+.scrollable-table table th,
+.scrollable-table table td,
+th,
+td {
+  display: table-cell;
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  border-right: none; /* 縦の仕切りを無くす */
+}
+
+/* 各列の比率を設定 */
+th:nth-child(1),
+td:nth-child(1) {
+  flex: 3;
+}
+th:nth-child(2),
+td:nth-child(2) {
+  flex: 2;
+}
+th:nth-child(3),
+td:nth-child(3) {
+  flex: 1;
+}
+
+/* テキストをラップする要素のスタイル */
+.cell-text {
+  flex-grow: 1;
+  text-align: left;
+}
+
+/* ボタンをラップする要素のスタイル */
+.cell-action {
+  margin-left: auto;
+}
+
+/* カスタム入力フィールドのスタイル */
+.custom-input {
+  width: 250px;
+  height: 20px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 行の高さを固定する場合 */
+.scrollable-table table tr {
+  height: 50px; /* 任意の高さを設定 */
+}
+
+/* テーブルのヘッダーの背景色を変更 */
+th {
+  background-color: #f2f2f2; /* 薄いグレー色 */
+}

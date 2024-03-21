@@ -1,0 +1,81 @@
+body, html {
+    display: flex;
+    justify-content: center; /* コンテンツを水平方向で中央揃え */
+    align-items: flex-start; /* コンテンツを垂直方向の上端に揃える */
+    height: 100vh;
+    margin: 0;
+    padding-top: 6vh; /* 上から10vhのパディングを適用、ここでpadding: 0;と競合しないようにする */
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+form {
+    width: 100%; /* フォームの幅をコンテナに合わせる */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    padding: 0;
+    margin-bottom: 10px; /* 適宜調整 */
+    margin: 0 0 20px; /* タイトルの下の余白のみを設定 */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: flex-start; /* ラベルと入力フィールドを左揃え */
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.signup-button {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px 15px;
+    width: 100px;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 auto; /* 左右のマージンを自動に設定して中央揃えに */
+    display: block; /* ブロックレベル要素にしてマージンを適用可能に */
+}
+
+.signup-button:hover {
+    background-color: darkorange;
+}
+
+/* ラベルの横に ":" を追加 */
+label::after {
+    content: "：";
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* 子要素を縦に並べる */
+    align-items: center; /* 中央揃え */
+    width: 100%; /* 幅を全体に */
+    max-width: 400px; /* 最大幅を指定、フォームの幅を制御 */
+}

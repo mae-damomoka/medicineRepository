@@ -1,0 +1,83 @@
+/* リストのスタイル */
+.hospital-list li {
+  /* 薬一覧のスタイルに合わせて変更する */
+  background-color: #f8f9fa; /* 薬一覧の背景色に合わせる */
+  /* その他のスタイルも薬一覧に合わせて変更 */
+}
+
+.hospital-list li .button {
+  /* 薬一覧のボタンのスタイルに合わせて変更する */
+  background-color: blue; /* 薬一覧のボタンの背景色に合わせる */
+  color: white; /* ボタンのテキストの色を白に */
+  /* その他のスタイルも薬一覧に合わせて変更 */
+}
+
+
+
+/* ボタンのスタイル */
+.button {
+  display: inline-block;
+  padding: 10px 10px;
+  margin: 10px 0;
+  background-color: blue; /* 背景色を青に変更 */
+  color: white; /* テキストの色を白に変更 */
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.button:hover {
+  background-color: #e2e6ea;
+}
+
+
+
+/* お気に入りボタン */
+.favorite {
+  background-color: #FFA500; /* オレンジ色 */
+}
+/* お気に入りではない場合はデフォルトの背景色（または白）に設定する */
+tr {
+  background-color: #FFFFFF; /* 元の色に戻す */
+}
+
+
+.button-blue {
+  background-color: #007bff; /* Bootstrapの青色 */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.button-blue:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+
+
+.menu-button {
+  position: fixed; /* ボタンを画面に固定 */
+  right: 10px;    /* 右から10ピクセルの位置に */
+  top: 10px;      /* 上から10ピクセルの位置に */
+  background-color: blue; /* ボタンの背景色を青に */
+  color: white;   /* テキストの色を白に */
+  padding: 10px 20px; /* パディングを設定 */
+  border: none;   /* 枠線なし */
+  cursor: pointer; /* カーソルをポインターに */
+  border-radius: 5px; /* ボーダーの角を丸く */
+  z-index: 1000;  /* 他の要素より前面に表示 */
+  text-decoration: none; /* テキストの下線を消す */
+}
+
+.menu-button:hover {
+  background-color: darkblue; /* ホバー時の背景色を濃い青に */
+}

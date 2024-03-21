@@ -1,0 +1,88 @@
+/* 全体のスタイルを中央揃えにする */
+body {
+  display: flex; /* flexに変更 */
+  flex-direction: column; /* 子要素を縦に並べる */
+  justify-content: flex-start; /* 上部に寄せるように変更 */
+  align-items: center; /* 横方向の中央揃え */
+  height: 100vh; /* 画面の高さいっぱいに要素を伸ばす */
+  margin: 0;
+  padding-top: 10px; /* 全体的な上のパディングを追加することもできます */
+  }
+  
+  /* ログアウトコンテナのスタイル */
+  .logout-container {
+    display: flex;
+    flex-direction: column; /* 子要素を縦に並べる */
+    align-items: center; /* 子要素を横方向の中央揃えにする */
+    gap: 20px; /* 要素間の間隔を設定 */
+    text-align: center;
+    width: 100%; /* 幅を100%にすることで、中央揃えにする */
+    margin-top: 20px; /* タイトルとの間隔を作る */
+    padding-top: 20px; /* コンテナの上部にパディングを追加してタイトルを下げる */
+  }
+  
+  .button-link {
+    padding: 10px 20px; /* パディングを調整 */
+    margin: 0 10px; /* ボタン間の余白を設定 */
+    text-decoration: none; /* 下線を消す */
+    color: white; /* 文字色を白に設定 */
+    border-radius: 5px; /* 角を丸くする */
+    cursor: pointer; /* カーソルを指にする */
+    font-size: 16px; /* 文字サイズを設定 */
+    border: none; /* ボタンの枠を消す */
+    display: inline-block; /* インラインブロック要素として表示 */
+  }
+
+  /* ログアウトボタンのスタイル */
+  .button-link-logout {
+    background-color: #dc3545;
+    color: white; /* 文字色を白にする */
+    padding: 10px 20px; /* パディングを適用 */
+    border: none; /* 枠線を消す */
+    border-radius: 5px; /* 角を丸くする */
+    cursor: pointer; /* カーソルを指にする */
+    text-decoration: none; /* テキストの下線を消す */
+  }
+  
+  /* ログインボタンと同じデザインを適用するためのスタイル */
+  /* ログインボタンのクラス名を仮定しています。正確なクラス名に置き換えてください。 */
+  .button-link-back {
+    background-color: #007bff; /* ログインボタンと同じ背景色 */
+    color: white; /* 文字色を白にする */
+    padding: 10px 20px; /* パディングを適用 */
+    border: none; /* 枠線を消す */
+    border-radius: 5px; /* 角を丸くする */
+    cursor: pointer; /* カーソルを指にする */
+    text-decoration: none; /* テキストの下線を消す */
+    display: inline-block; /* 他の要素と横に並べる */
+    margin: 10px; /* 余白を設定 */
+  }
+  
+  /* h1タイトルのスタイル */
+  .title {
+    position: relative; /* タイトルに対して相対位置を指定 */
+    top: 40px; /* タイトルを少し下げる */
+    margin-top: 20px; /* 上部のスペース */
+    padding-top: 10px; /* 必要に応じて調整 */
+    margin-bottom: 40px; /* タイトルとコンテンツの間の余白を追加 */
+    text-align: center; /* タイトルを中央寄せに */
+    margin: 0; /* デフォルトのマージンを削除 */
+    padding: 20px 0; /* 上下にパディングを追加 */
+    background: #fff; /* 背景色を白に、お好みで変更可能 */
+    border-bottom: none; /* もし横線がborderによるものであれば消す */
+  }
+  
+  /* ログアウト確認メッセージのスタイル */
+  .logout-message {
+    margin-bottom: 50px; /* メッセージ下のスペースを確保 */
+    text-align: center;
+    display: block; /* ブロックレベル要素として表示 */
+  }
+
+  /* ボタンコンテナのスタイル */
+.button-container {
+  display: flex; /* ボタンを横に並べる */
+  justify-content: center; /* ボタンを中央揃えにする */
+  gap: 20px; /* ボタン間の余白を設定 */
+  align-items: center; /* 追加: アイテムの高さを揃える */
+}

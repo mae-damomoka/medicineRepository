@@ -1,0 +1,88 @@
+        /* ボタン用の基本スタイル */
+        .button-link {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #28a745; /* ブートストラップの青色 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid transparent; /* 枠線を追加 */
+            font-size: 15px; /* 他のボタンと同じフォントサイズに設定 */
+            
+        }
+        
+        /* ボタンにカーソルを合わせた時のホバースタイル */
+        .button-link:hover {
+            background-color: #218838; /* ホバー時により濃い青色に変更 */
+            
+        }
+
+        /* ログアウトボタン用のスタイル */
+        .button-link-logout {
+            background-color: #dc3545; /* ブートストラップの赤色 */
+            border: none; /* ボーダーなし */
+            padding: 12px 20px; /* ログアウトボタンの通常時のサイズを調整 */
+        }
+
+        /* ログアウトボタンにカーソルを合わせた時のホバースタイル */
+        .button-link-logout:hover {
+            background-color: #bd2130; /* ホバー時により濃い赤色に変更 */
+        }
+
+        /* ログアウトフォームのスタイル */
+        .logout-form {
+        display: inline;
+        }
+
+
+        /* 病院一覧ボタンのスタイル */
+        .button-link-hospital {
+            background-color: #007bff; /* ブートストラップの緑色 */
+        }
+
+        /* 病院一覧ボタンにカーソルを合わせた時のホバースタイル */
+        .button-link-hospital:hover {
+            background-color: #0056b3; /* ホバー時により濃い緑色に変更 */
+        }
+
+        /* 薬一覧ボタンのスタイル */
+        .button-link-medicine {
+            background-color: #007bff; /* ブートストラップの黄色 */
+        }
+
+        /* 薬一覧ボタンにカーソルを合わせた時のホバースタイル */
+        .button-link-medicine:hover {
+            background-color: #0056b3; /* ホバー時により濃い黄色に変更 */
+        }
+
+        /* カレンダーボタンのスタイル */
+        .button-link-calendar {
+            background-color: #007bff; /* ブートストラップの灰色 */
+        }
+
+        /* カレンダーボタンにカーソルを合わせた時のホバースタイル */
+        .button-link-calendar:hover {
+            background-color: #0056b3; /* ホバー時により濃い灰色に変更 */
+        }     
+
+        .menu-container {
+            display: flex; /* フレックスボックスを適用 */
+            justify-content: center; /* 水平方向の中央揃え */
+            align-items: center; /* 垂直方向の中央揃え */
+            height: 100vh; /* 親要素の高さをビューポートの高さに合わせる */
+            flex-direction: row; /* 子要素を水平方向に並べる */
+            flex-wrap: wrap; /* 必要に応じてアイテムを次の行に折り返す */
+            margin-top: -350px; /* コンテナを上に20px移動 */
+        }
+        
+        h1 {
+            text-align: center; /* タイトルテキストを中央揃えに */
+            margin-top: 100px; /* タイトルを上部から50px下げる */
+        }
+        
+        .title {
+            text-align: center; /* タイトルテキストを中央揃えに */
+        }

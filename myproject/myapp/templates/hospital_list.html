@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>病院一覧</title>
+    {% load static %}
+    <link href="{% static 'myapp/css/hospital_list.css' %}?v=2" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <div class="page-wrapper"> 
+        <a href="{% url 'myapp:menu' %}" class="menu-button">メニューに戻る</a>
+        <div class="container centered-container">
+            <h1>病院一覧</h1>
+
+            <form method="post" action="{% url 'myapp:add_hospital' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div>
+                        <label for="hospital_name_input">病院名:</label>
+                        <input type="text" id="hospital_name_input" name="hospital_name" class="input-large" required>
+                    </div>
+                    <div>
+                        <label for="department_name_input">診療科目名:</label>
+                        <input type="text" id="department_name_input" name="department_name" class="input-large" required>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="input-submit">追加</button>
+                    </div>              
+                </div>
+            </form>
+
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>病院名</th>
+                            <th>科目</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for hospital in hospitals %}
+                        <tr id="hospital-{{ hospital.id }}" class="{% if hospital.is_favorite %}favorite{% endif %}" data-hospital-id="{{ hospital.id }}">
+                            <td>{{ hospital.name }}</td>
+                            <td>{{ hospital.department.name }}</td>
+                            <td class="text-right">
+                                <button type="button" class="button toggle-favorite" data-hospital-id="{{ hospital.id }}" title="お気に入りに追加">お気に入り</button>
+                                <button type="button" class="button delete-hospital"
+                                         data-hospital-id="{{ hospital.id }}" 
+                                         data-url="{% url 'myapp:delete_hospital' hospital.id %}" 
+                                         title="削除">削除</button>
+
+
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // CSRFトークンを取得するための関数
+    function getCsrfToken() {
+        return document.querySelector('[name=csrfmiddlewaretoken]').value;
+    }
+
+    $(document).ready(function() {
+        // 既存の削除機能のイベントハンドラ
+        $('.delete-hospital').click(function() {
+            var hospitalId = $(this).data('hospital-id');
+            var deleteUrl = $(this).data('url');
+
+            $.ajax({
+                url: deleteUrl,
+                type: 'POST',
+                data: {
+                    'hospital_id': hospitalId,
+                    'csrfmiddlewaretoken': getCsrfToken()
+                },
+                success: function(response) {
+                    $('#hospital-' + hospitalId).remove();
+                },
+                error: function(xhr, status, error) {
+                    console.error('削除に失敗しました。ステータス:', status, 'エラー:', error);
+                }
+            });
+        });
+    });
+
+    // お気に入りボタンのイベントハンドラを追加
+    $('.toggle-favorite').click(function() {
+    var $row = $(this).closest('tr');
+    $row.toggleClass('favorite');
+  });
+
+    
+</script>
+</body>
+</html>

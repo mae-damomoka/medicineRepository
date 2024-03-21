@@ -1,0 +1,28 @@
+
+.signup-form input[type="text"],
+.signup-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px; /* 角を丸くする*/
+
+    
+}
+
+.signup-form button {
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #FFA500; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* 角を丸くする */
+    font-size: 18px; /* ボタン内のテキストサイズを大きくする */
+} 
+
+.signup-form button:hover {
+    opacity: 0.8;
+}

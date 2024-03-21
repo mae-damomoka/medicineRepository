@@ -1,0 +1,199 @@
+/* 基本スタイル */
+.drug-item {
+  background-color: #f8f9fa; /* アイテムの背景色 */
+  border: 1px solid #ddd; /* 境界線のスタイル */
+  padding: 10px; /* 内側の余白 */
+  margin-bottom: 10px; /* 外側の下余白 */
+}
+
+/* ボタン共通スタイル */
+.button, .menu-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 10px 10px 0;
+  background-color: #0000ff; /* 青色の背景 */
+  color: #ffffff; /* 文字色 */
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover, .menu-button:hover {
+  background-color: #0056b3; /* ホバー時の背景色 */
+}
+
+.delete-button {
+  background-color: #e0e0e0; /* 薄いグレーの背景色 */
+  border-radius: 5px;
+  padding: 12px 24px; /* パディングを増やしてボタンを大きくする */
+  border: 1px solid #e0e0e0; /* 枠線をボタンの背景色と同じ色に設定 */
+  cursor: pointer;
+  font-weight: bold; /* 必要に応じて文字を太字に */
+  color: #000; /* ボタンのテキスト色を黒（または他の色）に設定 */
+}
+
+/* コンテナスタイル */
+.container {
+  margin-top: 20px; /* または必要な値に調整してください */
+  padding-left: 0; /* コンテナの左側のパディングをなくす */
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 中央ではなく上部からスタート */
+}
+
+.container table {
+  margin-top: 30px;
+  margin-bottom: 10px; /* ラベルの下の余白 */
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: 0; /* 左側の余白をなくす */
+}
+
+.container th, .container td {
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.container th {
+  background-color: #f8f8f8;
+  height: 40px; /* 高さを統一 */
+  line-height: 40px; /* テキストを中央に配置 */
+  padding: 10px; /* 内側の余白 */
+}
+
+/* メディアクエリ */
+@media (min-width: 768px) {
+  .container th, .container td {
+    padding: 15px;
+    font-size: 16px;
+  }
+  .form-group input {
+    width: 200px; /* 画面幅が768px以下の場合、入力ボックスの幅を100%に設定 */
+    margin-left: 0; /* 左マージンを0に設定 */
+  }
+  .container .form-group input {
+    width: 200px; /* 画面が768px以上の時も幅を200pxに */
+  }
+}
+
+.header {
+  text-align: left;
+  text-align: center;
+  margin-bottom: 10px; /* タイトルの下の余白 */
+  margin-top: 60px; /* ここを希望の余白に調整 */
+}
+
+.medicine-form {
+  text-align: left;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  display: flex;
+  justify-content: center; /* 水平方向の中央揃え */
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem; /* テーブルの上の余白を調整 */
+  margin-left: 0; /* 左側の余白をなくす */
+}
+
+/* 入力ボックスとラベルのコンテナスタイル */
+.form-group {
+  display: flex;
+  flex-direction: row; /* ここを変更して横並びに */
+  align-items: center; /* アイテムを中央揃えに */
+  margin-bottom: 20px;
+  justify-content: center; /* 子要素を水平方向の中央に配置します */
+}
+
+.form-group label {
+  margin-bottom: 5px; /* ラベルと入力フィールドの間の余白 */
+  font-weight: bold; /* ラベルを太字に */
+  margin-right: 10px; /* ラベルと入力ボックスの間に右マージンを追加 */
+  white-space: nowrap; /* ラベルが折り返さないように */
+  text-align: center;
+}
+
+/* 入力ボックススタイル */
+.form-group input {
+  display: block;
+  padding: 10px;
+  margin-bottom: 5px; /* 入力ボックス間のマージン */
+  border: 1px solid #ccc; /* 枠線のスタイル */
+  border-radius: 4px; /* 角を丸く */
+  box-sizing: border-box; /* ボックスサイズをborder-boxに設定 */
+  width: 200px; /* 入力ボックスの幅 */
+  text-align: center;
+}
+
+/* 戻るボタン */
+.back-to-menu {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #0000ff; /* ボタンの背景色 */
+  color: #ffffff; /* テキストの色 */
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.back-to-menu:hover {
+  background-color: darkblue; /* ホバー時の背景色 */
+}
+
+/* 追加ボタン */
+.add-button {
+  background-color: #4098D7; /* 青みがかった水色 */
+  color: white;
+  border: 2px solid #4098D7;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #357ABD; /* ホバー時にさらに濃い色 */
+}
+
+.button-container {
+  text-align: center;
+}
+
+/* medicines-list.css */
+.custom-input {
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* メディアクエリの外での幅の指定 */
+.container .form-group input {
+  width: 200px; /* 幅を変更 */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* ボタンの上の余白 */
+}

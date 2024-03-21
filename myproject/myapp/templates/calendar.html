@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>カレンダー</title>
+  <link href='https://unpkg.com/fullcalendar@5/main.min.css' rel='stylesheet' />
+  <link href="{% static 'myapp/css/calendar.css' %}?v=20240307" rel="stylesheet">
+
+
+ <style>
+
+    #calendar {
+      width: 100%;
+      height: 100vh;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="container">
+  <h1>カレンダー</h1>
+  <div class="input-group">
+  </div>
+
+<button type="button" class="button menu-button" onclick="window.history.back();">メニューに戻る</button>
+  <div class="form-calendar-container">
+
+    <div id="eventFormContainer" class="hidden"></div>
+
+      <div class="input-group">
+        <label for="eventDate">日付:</label>
+        <input type="date" id="eventDate" name="date">
+      </div>
+      <div class="input-group">
+        <label for="startTime">時間:</label>
+        <input type="time" id="startTime" name="startTime">
+      </div>
+      <div class="input-group">
+        <label for="eventContent">内容:</label>
+        <input type="text" id="eventContent" name="content">
+      </div>
+
+      <div class="button-container">
+        <button type="button" id="addEventButton">追加</button>
+        <button type="button" id="deleteEventButton" class="hidden">削除</button>
+      </div>
+      
+      
+    </div>
+    
+    <div id="calendar"></div>
+  </div>
+
+  
+</div>
+
+<script src='https://unpkg.com/fullcalendar@5/main.min.js'></script>
+
+<script>
+  // グローバルスコープで selectedEvent を宣言します
+  var selectedEvent;
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      locale: 'ja',
+      events: [],
+      height: 'parent',
+      contentHeight: 'auto',
+      aspectRatio: 1.8,
+
+      eventTimeFormat: { // ここに追加します
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      },
+
+      dateClick: function(info) {
+        document.getElementById('eventDate').value = info.dateStr;
+        document.getElementById('eventFormContainer').style.display = 'block';
+      },
+      eventClick: function(info) {
+        selectedEvent = info.event; // クリックされたイベントを選択
+        document.getElementById('deleteEventButton').style.display = 'inline'; // 削除ボタンを表示
+      }
+    });
+
+    // ストレージからイベントを読み込んでカレンダーに追加
+    var storedEvents = localStorage.getItem('events');
+    if (storedEvents) {
+      try {
+        var events = JSON.parse(storedEvents);
+        events.forEach(function(event) {
+          calendar.addEvent(event);
+        });
+      } catch (e) {
+        console.error("Stored events could not be parsed:", e);
+      }
+    }
+
+    calendar.render();
+  
+    // 削除ボタンのイベントリスナー
+    document.getElementById('deleteEventButton').addEventListener('click', function() {
+  if (selectedEvent) {
+    console.log('削除されるイベントのID:', selectedEvent.id);  // コンソールにIDを出力
+
+    // カレンダーからイベントを削除
+    selectedEvent.remove();
+
+    // ローカルストレージからイベントを削除
+    var storedEvents = JSON.parse(localStorage.getItem('events')) || [];
+    console.log('削除前の保存されているイベント:', storedEvents); // 削除前のイベントリストをコンソールに出力
+
+    var updatedEvents = storedEvents.filter(function(e) {
+      return e.id !== selectedEvent.id;
+    });
+
+    console.log('削除後の更新されたイベント:', updatedEvents); // 削除後のイベントリストをコンソールに出力
+    localStorage.setItem('events', JSON.stringify(updatedEvents)); // 更新されたイベントリストをローカルストレージに保存
+
+    document.getElementById('deleteEventButton').style.display = 'none';
+    selectedEvent = null;
+  }
+});
+
+
+    // "追加"ボタンのイベントリスナー
+document.getElementById('addEventButton').addEventListener('click', function() {
+  var date = document.getElementById('eventDate').value;
+  var content = document.getElementById('eventContent').value;
+  var startTime = document.getElementById('startTime').value;
+
+  // 時間をHH:MM形式に処理します
+  var timeParts = startTime.split(':');
+  if (timeParts.length === 2) {
+    var hours = timeParts[0].padStart(2, '0');
+    var minutes = timeParts[1];
+    startTime = hours + ':' + minutes;
+  } else if (timeParts.length === 1) {
+    startTime = startTime + ':00'; // 分が指定されていない場合は':00'を追加します
+  }
+
+  if (date && content && startTime) {
+    var eventId = Date.now().toString(); // 一意のIDを生成
+
+    var event = {
+      id: eventId, // イベントにIDを割り当てる
+      title: content,
+      start: date + 'T' + startTime,
+      backgroundColor: '#ff9f89',
+      borderColor: '#ff9f89',
+      allDay: false
+    };
+
+    calendar.addEvent(event);
+
+    // イベントをローカルストレージに保存
+    var events = JSON.parse(localStorage.getItem('events')) || [];
+    events.push(event);
+    localStorage.setItem('events', JSON.stringify(events));
+  } else {
+    alert('日付、内容、開始時間は必須です。');
+  }
+});
+
+// 削除ボタンのイベントリスナー
+document.getElementById('deleteEventButton').addEventListener('click', function() {
+  if (selectedEvent) {
+    selectedEvent.remove(); // カレンダーからイベントを削除
+
+    // ローカルストレージからイベントを削除
+    var storedEvents = JSON.parse(localStorage.getItem('events')) || [];
+    var updatedEvents = storedEvents.filter(function(e) {
+      return e.id !== selectedEvent.id; // イベントのIDでフィルタリング
+    });
+    localStorage.setItem('events', JSON.stringify(updatedEvents)); // 更新されたイベントリストを保存
+
+    document.getElementById('deleteEventButton').style.display = 'none';
+    selectedEvent = null;
+  }
+});
+});
+
+</script>
+
+</body>
+</html>

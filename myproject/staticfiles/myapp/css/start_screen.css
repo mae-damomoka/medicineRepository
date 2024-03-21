@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    justify-content: flex-start; /* コンテンツを上部に寄せる */
+    align-items: center; /* 中央揃え */
+    flex-direction: column; /* 縦方向に並べる */
+    height: 100vh;
+    padding-top: 10vh; /* 画面の上部に適度な余白を追加 */
+    margin: 0; /* デフォルトのマージンを取り除く */
+}
+
+.container {
+    text-align: center; /* テキストを中央揃えに */
+}
+
+h1 {
+    margin-bottom: 30px; /* タイトルの下の余白 */
+}
+
+.buttons { /* ボタンを横に並べるためのクラス */
+    display: flex;
+    justify-content: center; /* 中央揃えに */
+    margin-top: 20px; /* タイトルからのマージン */
+}
+
+.register-btn,
+.login-btn {
+    padding: 10px 20px; /* ボタンのパディング */
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    margin: 0 5px; /* 左右のマージン */
+    /* ボタンのサイズを調整する場合、font-sizeやwidthプロパティをここに追加 */
+}
+
+.register-btn {
+    background-color: #FFA500;
+}
+
+.login-btn {
+    background-color: #4CAF50;
+}
+
+

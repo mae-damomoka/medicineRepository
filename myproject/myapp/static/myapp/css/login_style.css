@@ -1,0 +1,84 @@
+/* フレックスボックスを使用して親要素を中央揃えにするスタイル */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 上に寄せる */
+    height: 100vh; /* 画面の高さ全体に */
+    padding-top: 50px; /* 上に少し余白を追加して全体を下げる */
+}
+
+/* ログインボックスのスタイル */
+.login-box {
+    text-align: center; /* テキストを中央揃えにする */
+    display: flex; /* Flexboxコンテナとして設定 */
+    flex-direction: column; /* 要素を縦方向に並べる */
+    justify-content: center; /* 縦方向の中心揃え */
+    align-items: center; /* 横方向の中心揃え */
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* タイトルと入力ボックスの間の余白 */
+.login-box h1 {
+    margin-bottom: 30px; /* タイトルの下の余白を追加 */
+}
+
+/* 各入力フィールドのスタイル */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+}
+
+/* 入力フィールドのスタイル */
+.login-input {
+    width: 250px;
+    height: 30px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+/* ラベルのスタイル */
+.input-group label {
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+/* サブミットボタンのスタイル */
+.login-submit {
+    width: 100px; /* 幅を指定 */
+    height: 40px; /* 高さを指定 */
+    background-color: #4CAF50;
+    color: white;
+    border: none; /* 境界線をなくす */
+    border-radius: 5px;
+    cursor: pointer; /* カーソルをポインターに指定 */
+    margin-top: 20px; /* 入力ボックスとの間に余白を追加 */
+}
+
+.login-submit:hover {
+    background-color: #45a049;
+}
+
+/* ボタンコンテナのスタイル */
+.button-container {
+    display: flex; /* Flexboxを有効にする */
+    justify-content: center; /* 水平方向の中央揃え */
+    width: 100%; /* コンテナの幅を100%に設定 */
+    margin-top: 10px; /* 必要に応じて余白を調整 */
+  }
+  
+.error-message {
+    display: block; /* この要素をブロックレベルで表示する */
+    margin-top: 20px; /* 上に余白を追加 */
+    text-align: center; /* 中央揃えにする */
+}
+
+.alert {
+    display: inline-block; /* この要素をインラインブロックで表示する */
+    white-space: nowrap; /* テキストが折り返されないようにする */
+}

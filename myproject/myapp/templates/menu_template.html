@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>メニュー</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/menu_styles.css' %}">
+</head>
+
+<body>
+    <h1 class="title">メニュー</h1>
+    <div class="menu-container"> 
+        <!-- 病院一覧ページへのリンク -->
+        <a href="{% url 'myapp:hospital_list' %}" class="button-link button-link-hospital">病院一覧画面</a>
+
+        <!-- 薬一覧ページへのリンク -->
+        <a href="{% url 'myapp:medicine_list' %}" class="button-link button-link-medicine">薬一覧画面</a>
+
+        <!-- カレンダーページへのリンク -->
+        <a href="{% url 'myapp:calendar' %}" class="button-link button-link-calendar">カレンダー画面</a>
+
+        
+        <!-- ログイン画面へ戻るリンク -->
+        <a href="{% url 'login' %}" class="button-link">ログイン画面</a>
+   
+        <!-- ログアウト確認画面へ遷移するリンク -->
+        <a href="{% url 'myapp:logout_confirm' %}" class="button-link button-link-logout">ログアウト画面</a>
+
+            
+        </form>   
+    </div>
+</body>
+</html>

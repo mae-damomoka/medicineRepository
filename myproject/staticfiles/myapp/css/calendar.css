@@ -1,0 +1,157 @@
+/* タイトルのスタイル */
+h1 {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-top: 100px; /* タイトルの上の余白を追加 */
+}
+
+/* ラベルと入力ボックスのスタイル */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* 入力ボックスのスタイル */
+.input-group input[type="text"],
+.input-group input[type="date"],
+.input-group input[type="time"],
+.input-group select {
+  display: block;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 250px; /* 入力ボックスの横幅を狭める */
+  margin-right: 10px;
+}
+
+/* ボタンの親コンテナスタイル */
+.button-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center; /* ボタンを水平方向の中央に配置 */
+}
+
+/* 「予定追加ボタン」のスタイル */
+#addEventButton {
+  background-color: #4098D7;
+  color: white;
+  border: 2px solid #4098D7;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+#addEventButton:hover {
+  background-color: #357ABD;
+}
+
+/* メニューに戻るボタンのスタイル */
+.menu-button {
+  background-color: #0000ff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;/* テキストの下線を消去 */
+  cursor: pointer;/* カーソルをポインターに */
+  position: fixed;/* 位置を固定 */
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  border: 2px solid #0000ff; /* 枠の色をボタンの背景色に合わせる */
+}
+
+.menu-button:hover {
+  background-color: #0056b3;
+}
+
+/* 画面サイズが768px以下の場合のスタイル */
+@media (max-width: 768px) {
+  .input-group input[type="text"],
+  .input-group input[type="date"],
+  .input-group input[type="time"],
+  .input-group select,
+  #addEventButton {
+      width: 100%;
+      margin-left: 0;
+  }
+
+  .menu-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+  }
+}
+
+/* コンテナスタイル */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 水平方向の中央揃え */
+  justify-content: center; /* 垂直方向の中央揃え */
+  min-height: 100vh; /* ビューポートの高さに合わせる */
+  text-align: center; /* テキスト要素を中央揃えに */
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 左揃えに */
+  flex-direction: row;
+  margin-bottom: 10px; /* 入力グループ間の間隔を追加 */
+}
+
+.input-group label {
+  margin-right: 10px;
+  white-space: nowrap;/* ラベルが折り返さないように */
+}
+
+/* calendar.css */
+.custom-input {
+  width: 250px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* calendar.css または適切なCSSファイルに追加 */
+.hidden {
+  display: none;
+}
+
+/* タップ時のハイライト色を無効にする */
+a, button, input, textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ユーザーが要素をクリックしたときのスタイルを無効にする */
+a:active, button:active, input:active, textarea:active {
+  outline: none;  /* 外枠の輪郭線を無効にする */
+  background-color: inherit; /* 背景色の変更を無効にする */
+}
+
+.form-calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#deleteEventButton {
+  margin-left: 20px; /* 20pxは例です。必要に応じて調整してください。 */
+  padding: 10px 20px; /* "追加ボタン"と同じpaddingを設定 */
+  border-radius: 5px; /* "追加ボタン"と同じボーダーの丸みを設定 */
+  font-size: 15px; /* "追加ボタン"と同じフォントサイズを設定、必要に応じて調整 */
+  height: 45px;
+  border: none; /* 枠線を削除 */
+  background-color: #e0e0e0; /* 濃いグレーの色コード */
+}
+

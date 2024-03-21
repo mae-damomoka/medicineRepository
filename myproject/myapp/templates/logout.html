@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>ログアウト</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/logout_styles.css' %}?v=1.0">
+</head>
+
+<body>
+    <div class="logout-container">
+        <h1 class="title">ログアウト</h1>
+        <p class="logout-message">本当にログアウトしますか？</p>
+        <div class="button-container">
+            <!-- Logout form -->
+            <form action="{% url 'myapp:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="button-link button-link-logout">ログアウト</button>
+            </form>
+            <!-- Back button -->
+            <a href="{% url 'myapp:menu' %}" class="button-link button-link-back">戻る</a>
+        </div>
+    </div>
+    
+</body>
+</html>
